@@ -89,8 +89,47 @@ def delete_employee(empid):
 #delete_employee(2)
 
 
+def main():
+   '''Main menu for EMS'''
+   while True:
+      print("\nEMPLOEE MANAGEMENT SYSTEM")
+      print("1.Add Employee")
+      print("2. View Employess")
+      print("3.Update Employee")
+      print("4. Delet Employee")
+      print("5.Exit")
+
+      choice=input("enter your choice:")
+      if choice=="1":
+         name=input("Enter Employee Name")
+         position=input("Enter Employee Position")
+         salary=int("Enter salary")
+         add_employee(name,position,salary)
+
+      elif choice=="2":
+         view_employees()
 
 
+      elif choice=="3" :
+         empid=int(input("Enter Employee ID:"))
+         name=input("Enter new Name:") or None
+         position=input("Enter Position") or None
+         salary=input("Enter Salary:")
+         salary=int(salary) if salary else None
+         update_employees(empid,name,position,salary)
+
+      elif choice=="4":
+         empid=int(input("Enter Employee Id to delete:"))
+         delete_employee(empid)
+            
+      elif choice=="5":
+         print("System Exited")
+         break
+      else:
+         print("Invalid choice try again..")
+
+if __name__ =="__main__":
+   main()
 
 
 
